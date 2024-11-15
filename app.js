@@ -1,6 +1,6 @@
 function sortTweets(tweets) {
-    return tweets.sort(function(a,b){
-            return new Date(b.created_at) - new Date(a.created_at);
+    return tweets.sort(function(a, b) {
+        return new Date(b.created_at) - new Date(a.created_at);
     });
 }
 const app = Vue.createApp({
@@ -47,17 +47,17 @@ const app = Vue.createApp({
             return date.toLocaleString('default', { month: 'short', day: 'numeric', year: 'numeric' });
         },
         fix_full_text(item) {
-            const media = item.full_text.replace(/\.\.\/\.\.\/tweets_media\//g,'tweets_media/');
+            const media = item.full_text.replace(/\.\.\/\.\.\/tweets_media\//g, 'tweets_media/');
             return media;
         },
         search(event) {
             event.preventDefault();
         },
         local_url(item) {
-            return "./b0rk/status/" + item.id_str;
+            return "./alexhillman/status/" + item.id_str;
         },
         twitter_url(item) {
-            return "https://twitter.com/b0rk/status/" + item.id_str;
+            return "/alexhillman/status/" + item.id_str;
         },
     }
 })
